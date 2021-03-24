@@ -27,25 +27,20 @@ def get_list(nombre_fichero):
 
 
 
-def get_minimum(lista):
-    menor=lista[0]
-    for i in range(1,len(lista)):
-        if lista[i]<menor:
-            menor=lista[i]
-    return menor
-#---main---
-listas = [6,3,8,2,5]
-res = get_minimum(listas)
-print(res)
-
-
 def mas_antiguos(lista, anyo):
+    lista_final = []
     for i in lista:
-        lista_claves = i.get_anyo()
-        if lista_claves == "an":
-            print (i.get_anyo())
+
+        if i.get_anyo() == anyo or i.get_anyo() < anyo:
+            lista_final += i.get_titulo()
+
+        if i.get_anyo() > 2021:
+            raise ValueError("Todavía no existe")
+        if i.get_anyo() < 1900:
+            raise ValueError("Es anterior al 1900")
 
 
+    return lista_final
 
 
 
@@ -53,12 +48,13 @@ def mas_antiguos(lista, anyo):
 
 
 # --- main() ---
-Libro1 = Libro(au ="Pepe", ti = "PE", an = 2000)
+Libro1 = Libro(au ="Pepe", ti = "PE", an = 2005)
 Libro2 = Libro(au ="Jose", ti = "JO", an = 2001)
-Libro3 = Libro(au ="Ana", ti = "AN", an = 2002)
+Libro3 = Libro(au ="Ana", ti = "AN", an = 2004)
+Libro4 = Libro(au ="Nadia", ti = "NA", an = 2000)
 
 
-lista_libros = [Libro1, Libro2, Libro3]
-#mas_antiguo = mas_antiguos(lista_libros, 1900)
-
+lista_libros = [Libro1, Libro2, Libro3, Libro4]
+mas_antiguo = mas_antiguos(lista_libros, 2001)
+print(mas_antiguo)
 
