@@ -36,7 +36,7 @@ class Cinema:
             row: la fila de la butaca
             seat: el numero de la butaca
         """
-        if self.__seating[row][seat] is None:
+        if self.__seating[row][seat] is None :
             self.__seating[row][seat] = "occupied"
 
     def count_free_seats(self,rows_seats,total):
@@ -49,6 +49,7 @@ class Cinema:
         for row, seat in rows_seats:
             if self.__seating[row][seat] == None:
                 total+=1
+        return total
 
 #------------------------------------------- MAIN -----------------------------------------------
 cinema = Cinema(rows=10, seats_per_row=8)
@@ -60,11 +61,15 @@ cinema.book_seat(2,4)
 cinema.print_seating()
 
 #ERROR 2: le paso la lista de "seats" donde deberÃ­a haber 2 libres y me dice que hay 0.
+
+#Para solucionar el error hemos creado la variable res donde guardamos lo que nos devuelve la función count_free_seats() y es eso lo que 
+# imprimimos además de en dicha función añadir un return.
+#El problema solucionado ha sido la falta del return y que en el print no se estaba mostrando lo que tocaba.
 print("\n------------- Error 2 -----------------")
 seats = [(2,4), (3,1), (5,2)]
 total = 0
-cinema.count_free_seats(seats,total)
-print("total: "+str(total))
+res = cinema.count_free_seats(seats,total)
+print("total: "+str(res))
 
 #ERROR 3: quiero modificar la butaca (2,4) de la lista anterior para que sea la (3,4) y no me deja.
 print("\n------------- Error 3 -----------------")
