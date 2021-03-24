@@ -10,4 +10,5 @@ class Libro:
     self.__anyo = an
 
 
-     
+    def get_anyo(self):
+        return self.__anyo
