@@ -72,8 +72,10 @@ res = cinema.count_free_seats(seats,total)
 print("total: "+str(res))
 
 #ERROR 3: quiero modificar la butaca (2,4) de la lista anterior para que sea la (3,4) y no me deja.
+
+#Hemos puesto de forma correcta los seats para que los identifique la función y imprimimos lo que nos devuelve
 print("\n------------- Error 3 -----------------")
-seats[0][1]=3
+seats=[(3,4)]
 total = 0
-cinema.count_free_seats(seats,total)
-print("total: "+str(total))
+res1 = cinema.count_free_seats(seats,total)
+print("total: "+str(res1))
